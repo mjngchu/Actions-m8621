@@ -84,7 +84,7 @@ jobs:
         cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86 .vermagic
         #cp -f .config-x86 .config
         cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86 target/linux/x86/Makefile
-        sudo rm -r .config-x86
+        #sudo rm -r .config-x86
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
