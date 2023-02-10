@@ -82,7 +82,7 @@ jobs:
         sudo rm -r include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86 .vermagic
-        #cp -f ~/work/Actions-m8621/Actions-m8621/.config .config
+        cp -f .config-x86 .config
         cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86 target/linux/x86/Makefile
         
     - name: SSH connection to Actions
