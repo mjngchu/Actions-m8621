@@ -74,7 +74,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config-x86
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -82,7 +82,7 @@ jobs:
         sudo rm -r include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86 .vermagic
-        cp -f .config-x86 .config
+        #cp -f .config-x86 .config
         cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86 target/linux/x86/Makefile
         sudo rm -r .config-x86
         
