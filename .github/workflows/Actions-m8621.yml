@@ -81,15 +81,15 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        sudo rm -r target/linux/kirkwood/base-files/etc/board.d/02_network
-        sudo rm -r target/linux/kirkwood/image/Makefile
-        sudo rm -r include/kernel-defaults.mk
-        cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
-        cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic .vermagic
-        cp -f ~/work/Actions-m8621/Actions-m8621/.config .config
-        cp -f ~/work/Actions-m8621/Actions-m8621/Makefile target/linux/kirkwood/image/Makefile
-        cp -f ~/work/Actions-m8621/Actions-m8621/02_network target/linux/kirkwood/base-files/etc/board.d/02_network
-        cp -f ~/work/Actions-m8621/Actions-m8621/kirkwood-m8621t.dts target/linux/kirkwood/files/arch/arm/boot/dts/kirkwood-m8621t.dts
+        #sudo rm -r target/linux/kirkwood/base-files/etc/board.d/02_network
+        #sudo rm -r target/linux/kirkwood/image/Makefile
+        #sudo rm -r include/kernel-defaults.mk
+        #cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
+        #cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic .vermagic
+        #cp -f ~/work/Actions-m8621/Actions-m8621/.config .config
+        #cp -f ~/work/Actions-m8621/Actions-m8621/Makefile target/linux/kirkwood/image/Makefile
+        #cp -f ~/work/Actions-m8621/Actions-m8621/02_network target/linux/kirkwood/base-files/etc/board.d/02_network
+        #cp -f ~/work/Actions-m8621/Actions-m8621/kirkwood-m8621t.dts target/linux/kirkwood/files/arch/arm/boot/dts/kirkwood-m8621t.dts
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
