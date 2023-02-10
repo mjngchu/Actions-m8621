@@ -20,16 +20,16 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
+  REPO_BRANCH: openwrt-22.03
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
@@ -80,7 +80,16 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        $GITHUB_WORKSPACE/$DIY_P2_SHsudo rm -r target/linux/kirkwood/base-files/etc/board.d/02_network
+        sudo rm -r target/linux/kirkwood/image/Makefile
+        sudo rm -r include/kernel-defaults.mk
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/kernel-defaults.mk include/kernel-defaults.mk
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/.vermagic .vermagic
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/.config .config
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/Makefile target/linux/kirkwood/image/Makefile
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/02_network target/linux/kirkwood/base-files/etc/board.d/02_network
+        cp -f ~/work/openwrt-P3TERX/openwrt-P3TERX/kirkwood-m8621t.dts target/linux/kirkwood/files/arch/arm/boot/dts/kirkwood-m8621t.dts
+        
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -97,6 +106,7 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        sed -i 's/\/bin\/login/\/bin\/login -f root/' ./feeds/packages/utils/ttyd/files/ttyd.config
 
     - name: Compile the firmware
       id: compile
