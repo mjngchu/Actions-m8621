@@ -78,12 +78,12 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        #sudo rm -r target/linux/x86/Makefile
-        #sudo rm -r include/kernel-defaults.mk
-        #cp -f ~/work/Actions-m8621/x86/kernel-defaults.mk include/kernel-defaults.mk
-        #cp -f ~/work/Actions-m8621/x86/.vermagic-x86 .vermagic
-        #cp -f ~/work/Actions-m8621/x86/.config .config
-        #cp -f ~/work/Actions-m8621/x86/Makefile-x86 target/linux/x86/Makefile
+        sudo rm -r target/linux/x86/Makefile
+        sudo rm -r include/kernel-defaults.mk
+        cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
+        cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86 .vermagic
+        #cp -f ~/work/Actions-m8621/Actions-m8621/.config .config
+        cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86 target/linux/x86/Makefile
         
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
