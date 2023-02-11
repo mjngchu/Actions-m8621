@@ -84,6 +84,8 @@ jobs:
         sudo rm -r target/linux/kirkwood/base-files/etc/board.d/02_network
         sudo rm -r target/linux/kirkwood/image/Makefile
         sudo rm -r include/kernel-defaults.mk
+        sudo rm -r include/target.mk
+        cp -f ~/work/Actions-m8621/Actions-m8621/target.mk-fw3 include/target.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic .vermagic
         #cp -f ~/work/Actions-m8621/Actions-m8621/.config .config
