@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Actions-x86
+name: Actions-x86-fw3
 
 on:
   repository_dispatch:
@@ -84,7 +84,7 @@ jobs:
         sudo rm -r target/linux/x86/Makefile
         sudo rm -r include/kernel-defaults.mk
         sudo rm -r include/target.mk
-        cp -f ~/work/Actions-m8621/Actions-m8621/target.mk-x86 include/target.mk
+        cp -f ~/work/Actions-m8621/Actions-m8621/target.mk-x86-fw3 include/target.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk include/kernel-defaults.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86 .vermagic
         #cp -f .config-x86 .config
