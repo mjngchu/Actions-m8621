@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Actions-x86-5.15
+name: Actions-ax6000
 
 on:
   repository_dispatch:
@@ -81,14 +81,14 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        sudo rm -r target/linux/x86/Makefile
+        #sudo rm -r target/linux/x86/Makefile
         sudo rm -r include/kernel-defaults.mk
         sudo rm -r include/target.mk
-        cp -f ~/work/Actions-m8621/Actions-m8621/target.mk-x86-5.15 include/target.mk
+        cp -f ~/work/Actions-m8621/Actions-m8621/target.mk-ax6000 include/target.mk
         cp -f ~/work/Actions-m8621/Actions-m8621/kernel-defaults.mk-x86-5.15 include/kernel-defaults.mk
-        cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-x86-5.15 .vermagic
+        cp -f ~/work/Actions-m8621/Actions-m8621/.vermagic-ax6000 .vermagic
         #cp -f .config-x86 .config
-        cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86-5.15 target/linux/x86/Makefile
+        #cp -f ~/work/Actions-m8621/Actions-m8621/Makefile-x86-5.15 target/linux/x86/Makefile
         #sudo rm -r .config-x86
         
     - name: SSH connection to Actions
