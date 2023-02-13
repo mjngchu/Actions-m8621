@@ -65,7 +65,7 @@ DEFAULT_PACKAGES.router:=\
         mkf2fs coremark drill ds-lite nano pdnsd-alt procd procd-seccomp \
 	resolveip swconfig htop openssh-sftp-server kmod-ipt-nat kmod-ipt-nat6 \
 	kmod-lib-zstd kmod-tcp-bbr kmod-fs-exfat kmod-fs-ntfs kmod-sit ipset ip-full \
-	ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare \
+	ddns-scripts_aliyun ddns-scripts_dnspod ddns-scripts-cloudflare autocore-x86 automount \
         luci-base luci-compat luci-lib-fs luci-lib-ipkg curl ca-certificates \
 	wget-ssl wpad-basic-wolfssl zram-swap bash busybox dropbear iwinfo uboot-envtools
 
