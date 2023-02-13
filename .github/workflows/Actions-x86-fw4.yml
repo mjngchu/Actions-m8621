@@ -93,9 +93,9 @@ jobs:
         sudo rm -r package/feeds/smpackage/luci-app-mosdns
         sudo rm -r package/feeds/smpackage/mosdns
         cp -r ~/work/Actions-m8621/Actions-m8621/lede/feeds/luci/applications/luci-app-mosdns feeds/luci/applications/luci-app-mosdns
-        cp -r ~/work/Actions-m8621/Actions-m8621/lede/feeds/package/net/mosdns feeds/package/net/mosdns
-        cp -r ~/work/Actions-m8621/Actions-m8621/lede/fpackage/eeds/luci/luci-app-mosdns package/feeds/luci/luci-app-mosdns
-        cp -r ~/work/Actions-m8621/Actions-m8621/lede/package/feeds/package/net/mosdns package/feeds/package/net/mosdns
+        cp -r ~/work/Actions-m8621/Actions-m8621/lede/feeds/packages/net/mosdns feeds/packages/net/mosdns
+        cp -r ~/work/Actions-m8621/Actions-m8621/lede/fpackage/feeds/luci/luci-app-mosdns package/feeds/luci/luci-app-mosdns
+        cp -r ~/work/Actions-m8621/Actions-m8621/lede/package/feeds/packages/mosdns package/feeds/packages/mosdns
         sudo rm -r ~/work/Actions-m8621/Actions-m8621/lede
     
     - name: Load custom configuration
