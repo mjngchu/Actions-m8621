@@ -56,13 +56,13 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
-        git clone https://github.com/coolsnowwolf/lede.git
+        sudo chown $USER:$GROUPS /workdir        
         
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
+        git clone https://github.com/coolsnowwolf/lede.git
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
@@ -91,7 +91,7 @@ jobs:
         sudo rm -r feeds/smpackage/luci-app-mosdns
         sudo rm -r feeds/smpackage/mosdns
         sudo rm -r package/feeds/smpackage/luci-app-mosdns
-        sudo rm -r packagefeeds/smpackage/mosdns
+        sudo rm -r package/feeds/smpackage/mosdns
         cp -f ~/work/Actions-m8621/Actions-m8621/lede/feeds/luci/applications/luci-app-mosdns feeds/luci/applications/luci-app-mosdns
         cp -f ~/work/Actions-m8621/Actions-m8621/lede/feeds/package/net/mosdns feeds/package/net/mosdns
         cp -f ~/work/Actions-m8621/Actions-m8621/lede/package/feeds/luci/applications/luci-app-mosdns package/feeds/luci/applications/luci-app-mosdns
