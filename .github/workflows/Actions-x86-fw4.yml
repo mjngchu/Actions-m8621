@@ -57,6 +57,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        git clone https://github.com/coolsnowwolf/lede.git
         
     - name: Clone source code
       working-directory: /workdir
@@ -77,7 +78,26 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-
+      
+    - name: Update lede feeds
+      run: cd ~/work/Actions-m8621/Actions-m8621/lede && ./scripts/feeds update -a
+    
+    - name: Install lede feeds
+      run: cd ~/work/Actions-m8621/Actions-m8621/lede && ./scripts/feeds install -a
+      
+    - name: cp mosdns
+      run: |
+        cd ~/work/Actions-m8621/Actions-m8621/openwrt
+        sudo rm -r feeds/smpackage/luci-app-mosdns
+        sudo rm -r feeds/smpackage/mosdns
+        sudo rm -r package/feeds/smpackage/luci-app-mosdns
+        sudo rm -r packagefeeds/smpackage/mosdns
+        cp -f ~/work/Actions-m8621/Actions-m8621/lede/feeds/luci/applications/luci-app-mosdns feeds/luci/applications/luci-app-mosdns
+        cp -f ~/work/Actions-m8621/Actions-m8621/lede/feeds/package/net/mosdns feeds/package/net/mosdns
+        cp -f ~/work/Actions-m8621/Actions-m8621/lede/package/feeds/luci/applications/luci-app-mosdns package/feeds/luci/applications/luci-app-mosdns
+        cp -f ~/work/Actions-m8621/Actions-m8621/lede/package/feeds/package/net/mosdns package/feeds/package/net/mosdns
+        sudo rm -r ~/work/Actions-m8621/Actions-m8621/lede
+    
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
